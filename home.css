@@ -1,0 +1,847 @@
+body {
+    background-color: black;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.highlight3 {
+    color:  rgb(148, 243, 15); /* The Matrix/Hacker Green */
+}
+.highlight2 {
+    color: rgb(112, 255, 2); /* The Matrix/Hacker Green */
+}
+.highlight1 {
+    color: rgb(65, 255, 2); /* The Matrix/Hacker Green */
+}
+.highlight {
+    color:rgb(125, 231, 26); /* The Matrix/Hacker Green */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+:root {
+  --green: #00ff41;
+  --dark: black;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  background: var(--green);
+  color: black;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--green);
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--green);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.pic-link{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+.pic-link img {
+    width: 20px;
+    height: 15px;
+    margin-top: 4px;
+}
+nav .pic-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--green);
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav .pic-link:hover {
+  color: var(--green);
+}
+
+nav .pic-link:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 5%;
+    text-align: left;
+}
+
+.hero-content { flex: 1; min-width: 300px; }
+.hero-content h1 { 
+    font-size: 5rem;
+    display: block;
+    white-space: nowrap;
+    animation: movetext 12s linear infinite; 
+}
+.hero-content p { margin-left: 25px;}
+
+.span {
+    display: block;
+}
+.hero-btns {
+    margin: 20px 0px;
+}
+
+.btn-primary {
+    background: #00ff41;
+    border: whitesmoke;
+    padding: 12px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 40px;
+}
+.btn-primary:hover {
+    padding: 20px 30px;
+    color: white;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+    color: black;
+    background-color: #00ff41;
+    padding: 20px 30px;
+}
+
+/* Image styling */
+.hero-image-container {
+    position: relative;
+    border: 3px solid #00ff41;
+    margin-top: 30px;
+    margin-right: 100px;
+}
+.hero-image-container::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ffffff;
+    z-index: -1;
+}
+
+.profile-pic {
+    width:900px;
+    display: block;
+    max-width: 1200;
+    min-width: 300px;
+    max-height: 700px;
+    min-height: 200px;
+    height: 700px;
+    margin-right: 200px;
+}
+
+/* Floating Arrow Animation */
+.scroll-indicator {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height:120px;
+    border: 2px solid #00ff41;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 2s infinite;
+}
+
+.projects-section {
+  position: relative;
+  background: #2b2f2e; /* dark grey background */
+  padding: 100px 20px 120px;  
+  height: 230px;
+/*clip-path: polygon(0 50px, 50% 0, 100% 50px, 100% 100%, 0 100%);
+  margin-top: -50px;*/
+}
+
+/* V SHAPE 
+.projects-section::before,
+.projects-section::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  width: 50%;
+  height: 80px;
+  background: #000000;
+  z-index: 1;
+}*/
+
+/*.projects-section::before {
+  left: 0;
+  transform: skewY(4deg);
+  transform-origin: 100% 0;
+}
+
+.projects-section::after {
+  right: 0;
+  transform: skewY(-4deg);
+  transform-origin: 0 0;
+}*/
+
+.projects-bg {
+  margin-top: -50px; /* Pulls it up behind the card */
+  width: 100%;
+  height: 100px;
+  clip-path: polygon(0 0, 50% 100%, 100% 0, 100% 100%, 0 100%);
+  background: black;
+}
+
+/* CONTENT */
+.projects-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.projects-content h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* GREEN "Projects" */
+.projects-content h2 span {
+  color: #1db954; /* same green */
+}
+
+/* SUBTEXT */
+.projects-content p {
+  color: #b5b5b5;
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.gallery-section {
+  background: #2b2f2e;
+  /*background-color: #1a1a1a; background-color: #b5b5b5; /* Match your site theme */
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.gallery-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+ /* height: 200vh;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;*/
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content; /* Allows track to be as wide as all images combined */
+  animation: scroll 20s linear infinite;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 100px 5%;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) translateY(0px);
+  transition: transform 0.1s ease-out;*/
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 350px; /* Adjust size to match your video */
+  height: 250px;
+  margin: 0 15px;
+  /*transition: transform 0.3s ease;*/
+  border-radius: 10px;
+  overflow: hidden;
+  background: #333;
+  border: 17px solid #000000;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /*display: block;*/
+}
+
+/* Black Section with Slant */
+/*.black-section {
+    background-color: #000;
+    padding: 100px 20px;
+    /* This creates the bottom slant */
+    /*clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    margin-bottom: -50px; /* Overlaps with the green section 
+}*/
+
+.icons{
+    width: 50px;
+    height: 50px;
+}
+
+/* --- 1. YOUR ORIGINAL GREY SECTION --- */
+/*.projects-section {
+    position: relative;
+    background: #2b2f2e; /* Dark grey */
+    /*padding: 120px 20px 60px; /* Reduced bottom padding to move arrow up */
+    /*text-align: center;
+    overflow: hidden;
+}
+
+.projects-content h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.projects-content h2 span {
+    color: #1db954; /* Spotify Green 
+}*/
+
+/* --- 2. THE V-SHAPE SPLIT (Grey to Black) --- */
+/*.black-transition-area {
+    background-color: #000000;
+    height: 150px;
+    position: relative;
+    /* This creates the V-notch seen in your video */
+    /*clip-path: polygon(0 0, 50% 20%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -2px; /* Prevents tiny white gaps 
+}*/
+
+.v-cut {
+    /*background-color: #000; /* Pure Black */
+    /*height: 320px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    /* This creates the 5-point V shape from your second photo */
+    /*clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -50px; /* This pulls the V up into your project section */
+    background-color: #1db954;
+    clip-path: polygon(50% 0, 100% 10%, 0 10%);
+    height: 500px;
+    margin-top: -50px;
+    width: 100%;
+    /*position: relative;
+    z-index: 2;*/
+}
+/* --- 3. THE GREEN SECTION & SLANT --- */
+.what-i-do-section {
+    background-color: #1db954;
+    padding: 120px 20px;
+    position: relative;
+    /* This creates the slant from the black section above */
+    /*clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);*/
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+    margin-top: -60px; 
+    /*text-align: center;*/
+}
+
+.main-title {
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #000;
+}
+
+/* --- 4. THE INTERACTIVE BOXES --- */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.card {
+    background: #000000;
+    color: #ffffff;
+    padding: 40px 30px;
+    width: 300px;
+    border-radius: 5px;
+    opacity: 0.7; /* Dull/Opaque by default */
+    transition: all 0.4s ease; /* Smooth motion */
+    cursor: pointer;
+}
+
+.card-icon {
+    color: #1db954;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #b5b5b5;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* THE EXACT HOVER EFFECT FROM VIDEO */
+.card:hover {
+    opacity: 1; /* Brightens up */
+    transform: translate(-15px, -15px); /* Moves Top-Left */
+    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section {
+    background-color: #111;
+    color: white;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers everything horizontally */
+    text-align: center;
+}
+
+/* Top Dash Line */
+.divider {
+    width: 80%; /* Adjust as needed */
+    height: 10px;
+    background-color: #c0bcbc;
+    margin: 20px 0 40px 0;
+    border-radius: 3px;
+}
+
+/* Bottom Dash Line (The one you asked for) */
+.bottom-divider {
+    width: 80%;
+    height: 1px;
+    background-color: #444;
+    margin-top: 40px;
+}
+
+.skills-container {
+    width: 100%;
+    max-width: 600px; /* Keeps boxes from getting too wide */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-card {
+    border: 2px solid #39FF14; /* Neon Green */
+    background: transparent;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 4px 4px 0px #39FF14; /* The "offset" box look in your video */
+}
+/* 1. Initial state: hidden and moved down 50px */
+.skill-card {
+    opacity: 0;
+    transform: translateY(40px); /* Moves it down starting point */
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    /* The cubic-bezier adds a slight "bounce" like a professional UI */
+}
+
+.skill-card.appear {
+    opacity: 1;
+    transform: translateY(0); /* Moves it back to original position */
+}
+.skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skill-card:nth-child(4) { transition-delay: 0.4s; }
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-btn {
+    background: #39FF14;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    text-align: left;
+}
+
+.skill-card.active .card-content {
+    max-height: 200px; /* Allows it to expand */
+    margin-top: 10px;
+}
+
+.scroll-arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;  /* Increased width */
+    border-right: 20px solid transparent; /* Increased width */
+    border-top: 50px solid #1a2e1a;      /* Increased length and matched color */
+    /*margin: 20px auto;*/
+    margin-top: 100px;
+    cursor: pointer;
+}
+
+.about-section {
+  background-color: #1a2e1a; /* Dark forest green from video */
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: left;
+}
+
+.section-title { font-size: 2rem; margin-bottom: 30px; }
+.highlight { color: #39FF14; }
+
+/* Reusable Card Style */
+.about-card, .learning-card, .stat-box {
+  border: 2px solid #39FF14;
+  background: transparent;
+  box-shadow: 5px 5px 0px #39FF14; /* The offset shadow look */
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.welcome-text { color: #39FF14; margin-bottom: 10px; }
+
+/* Grid for the 4 small boxes */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.stat-box {
+  margin-bottom: 0; /* Override margin for grid */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number, .stat-icon {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #39FF14;
+}
+
+/* Learning Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: #2a4d2a;
+  border: 1px solid #39FF14;
+  padding: 5px 15px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 0.9rem;
+}
+
+/* Animation Classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Starting positions */
+.from-right {
+    opacity: 0;
+    transform: translateX(100px); /* Starts far to the right */
+    transition: all 0.8s ease-out;
+}
+
+.from-left {
+    opacity: 0;
+    transform: translateX(-100px); /* Starts far to the left */
+    transition: all 0.8s ease-out;
+}
+
+/* The "Appear" state for both */
+.from-right.appear, .from-left.appear {
+    opacity: 1;
+    transform: translateX(0); /* Moves to center */
+}
+
+:root {
+    --primary-green: #39FF14;
+    --dark-bg: #1a2e1a; /* Deep forest green/black */
+    --card-bg: #111;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+}
+
+/* Container for positioning */
+.footer-container {
+    position: relative;
+    padding-top: 100px;
+}
+
+/* The Sliding Card */
+.cta-card {
+    background: var(--card-bg);
+    border: 3px solid var(--primary-green);
+    width: 85%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    border-radius: 4px;
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease-out;
+}
+
+.cta-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta-card h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cta-card h2 span {
+    color: var(--primary-green);
+}
+
+.cta-card p {
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.get-in-touch {
+    background: var(--primary-green);
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+/* The V-Shape */
+.v-shape {
+    background-color: var(--dark-bg);
+    height: 100px;
+    width: 100%;
+    margin-top: -50px; /* Pulls it up behind the card */
+    clip-path: polygon(0 0, 50% 100%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.avatar {
+    background: var(--primary-green);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.links-section h4, .connect-section h4 {
+    color: #888;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+ul { list-style: none; padding: 0; }
+ul li { margin: 10px 0; }
+ul li a { color: white; text-decoration: none; }
+
+.flex{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.flex h3 {
+  margin-top: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.icon {
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-line { border: 0.5px solid #333; margin: 40px 0 20px 0; }
+.copyright { font-size: 0.8rem; color: #666; text-align: center; }
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+    40% {transform: translateX(-50%) translateY(-10px);}
+    60% {transform: translateX(-50%) translateY(-5px);}
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-track:hover{
+  animation-play-state: paused;
+}
+
+/* Responsive Logic */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide menu on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #0a0a0a;
+        text-align: center;
+    }
+
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+    .hero { text-align: center; }
+    .gallery-container {grid-template-columns: 1fr;}
+}
