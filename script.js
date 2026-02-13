@@ -1,7 +1,9 @@
-function toggleMenu() {
-    const nav = document.getElementById("navLinks");
-    nav.classList.toggle("active");
-}
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
 const track = document.querySelector('.gallery-track');
 
 // Optional: Change speed based on user preference or screen size

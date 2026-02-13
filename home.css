@@ -140,7 +140,7 @@ nav .pic-link:hover::after {
 .hero-content h1 { 
     font-size: 5rem;
     display: block;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     animation: movetext 12s linear infinite; 
 }
 .hero-content p { margin-left: 25px;}
@@ -199,14 +199,13 @@ nav .pic-link:hover::after {
 }
 
 .profile-pic {
-    width:900px;
     display: block;
-    max-width: 1200;
     min-width: 300px;
     max-height: 700px;
     min-height: 200px;
-    height: 700px;
-    margin-right: 200px;
+    width: 100%;       /* Fills the container */
+    height: auto;      /* Keeps proportions */
+    max-width: 500px;  /* Stops it from getting too big on desktop */
 }
 
 /* Floating Arrow Animation */
@@ -230,33 +229,7 @@ nav .pic-link:hover::after {
   background: #2b2f2e; /* dark grey background */
   padding: 100px 20px 120px;  
   height: 230px;
-/*clip-path: polygon(0 50px, 50% 0, 100% 50px, 100% 100%, 0 100%);
-  margin-top: -50px;*/
 }
-
-/* V SHAPE 
-.projects-section::before,
-.projects-section::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  width: 50%;
-  height: 80px;
-  background: #000000;
-  z-index: 1;
-}*/
-
-/*.projects-section::before {
-  left: 0;
-  transform: skewY(4deg);
-  transform-origin: 100% 0;
-}
-
-.projects-section::after {
-  right: 0;
-  transform: skewY(-4deg);
-  transform-origin: 0 0;
-}*/
 
 .projects-bg {
   margin-top: -50px; /* Pulls it up behind the card */
@@ -315,13 +288,6 @@ nav .pic-link:hover::after {
   display: flex;
   width: max-content; /* Allows track to be as wide as all images combined */
   animation: scroll 20s linear infinite;
-  /*display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 100px 5%;
-  transform-style: preserve-3d;
-  transform: rotateX(20deg) translateY(0px);
-  transition: transform 0.1s ease-out;*/
 }
 
 .gallery-item {
@@ -340,79 +306,28 @@ nav .pic-link:hover::after {
   width: 100%;
   height: auto;
   object-fit: cover;
-  /*display: block;*/
 }
-
-/* Black Section with Slant */
-/*.black-section {
-    background-color: #000;
-    padding: 100px 20px;
-    /* This creates the bottom slant */
-    /*clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-    margin-bottom: -50px; /* Overlaps with the green section 
-}*/
 
 .icons{
     width: 50px;
     height: 50px;
 }
 
-/* --- 1. YOUR ORIGINAL GREY SECTION --- */
-/*.projects-section {
-    position: relative;
-    background: #2b2f2e; /* Dark grey */
-    /*padding: 120px 20px 60px; /* Reduced bottom padding to move arrow up */
-    /*text-align: center;
-    overflow: hidden;
-}
-
-.projects-content h2 {
-    font-size: 40px;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.projects-content h2 span {
-    color: #1db954; /* Spotify Green 
-}*/
-
-/* --- 2. THE V-SHAPE SPLIT (Grey to Black) --- */
-/*.black-transition-area {
-    background-color: #000000;
-    height: 150px;
-    position: relative;
-    /* This creates the V-notch seen in your video */
-    /*clip-path: polygon(0 0, 50% 20%, 100% 0, 100% 100%, 0 100%);
-    margin-top: -2px; /* Prevents tiny white gaps 
-}*/
 
 .v-cut {
-    /*background-color: #000; /* Pure Black */
-    /*height: 320px;
-    width: 100%;
-    position: relative;
-    z-index: 5;
-    /* This creates the 5-point V shape from your second photo */
-    /*clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);
-    margin-top: -50px; /* This pulls the V up into your project section */
     background-color: #1db954;
     clip-path: polygon(50% 0, 100% 10%, 0 10%);
     height: 500px;
     margin-top: -50px;
     width: 100%;
-    /*position: relative;
-    z-index: 2;*/
 }
 /* --- 3. THE GREEN SECTION & SLANT --- */
 .what-i-do-section {
     background-color: #1db954;
     padding: 120px 20px;
     position: relative;
-    /* This creates the slant from the black section above */
-    /*clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);*/
     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
     margin-top: -60px; 
-    /*text-align: center;*/
 }
 
 .main-title {
@@ -836,10 +751,17 @@ ul li a { color: white; text-decoration: none; }
         top: 70px;
         left: 0;
         width: 100%;
-        background: #0a0a0a;
-        text-align: center;
+        background: #00ff41;
+        align-items: center;
     }
 
+    .nav-links a{
+        color: #000;
+    }
+    .nav-links a:hover{
+        color: white;
+        text-decoration: underline solid;
+    }
     .nav-links.active { display: flex; }
     .hamburger { display: block; }
     .hero { text-align: center; }
