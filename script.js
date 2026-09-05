@@ -1,80 +1,81 @@
-// --- Hamburger menu ---
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
-}
-
-// --- Gallery scroll speed ---
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
 const track = document.querySelector('.gallery-track');
-if (track) {
-    track.style.animationDuration = "25s";
-}
 
-// --- Skill card expand/collapse ---
+// Optional: Change speed based on user preference or screen size
+track.style.animationDuration = "25s";
+
 function toggleSkill(element) {
+    // Toggle the 'active' class for styling/expansion
     element.classList.toggle('active');
-
+    
     const btn = element.querySelector('.toggle-btn');
-    if (!btn) return;
-
+    
+    // Check if currently expanded
     if (element.classList.contains('active')) {
         btn.textContent = '×';
-        btn.style.backgroundColor = '#ff4d4d';
+        btn.style.backgroundColor = '#ff4d4d'; // Reddish color for X
     } else {
         btn.textContent = '+';
-        btn.style.backgroundColor = '#39FF14';
+        btn.style.backgroundColor = '#39FF14'; // Back to green
     }
 }
 
-// --- Reveal skill cards on scroll ---
-const observerOptions = { threshold: 0.2 };
+const observerOptions = {
+    threshold: 0.2 // Triggers when 10% of the box is visible
+};
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Adds the class when you scroll TO it
             entry.target.classList.add('appear');
         } else {
+            // Removes the class when you scroll AWAY
+            // This allows it to animate again next time
             entry.target.classList.remove('appear');
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.skill-card').forEach(card => observer.observe(card));
+document.querySelectorAll('.skill-card').forEach(card => {
+    observer.observe(card);
+});
 
-// --- Reveal general scroll-animated elements ---
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('appear');
         } else {
-            entry.target.classList.remove('appear');
+            entry.target.classList.remove('appear'); // Resets so it animates again
         }
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.skill-card, .animate-on-scroll, .from-left, .from-right')
-    .forEach(el => scrollObserver.observe(el));
+// Add the new classes to the list of things to observe
+document.querySelectorAll('.skill-card, .animate-on-scroll, .from-left, .from-right').forEach(el => {
+    scrollObserver.observe(el);
+});
 
-// --- Reveal footer CTA card ---
 document.addEventListener("DOMContentLoaded", () => {
     const card = document.querySelector('.cta-card');
-    const footerContainer = document.querySelector('.footer-container');
 
-    if (card && footerContainer) {
-        const ctaObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    card.classList.add('visible');
-                } else {
-                    card.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.2 });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the class that triggers the CSS transition
+                card.classList.add('visible');
+            } else {
+                card.classList.remove('visible')
+            }
+        });
+    }, {
+        threshold: 0.2 // Trigger when 20% of the footer is visible
+    });
 
-        ctaObserver.observe(footerContainer);
-    }
+    observer.observe(document.querySelector('.footer-container'));
 });
-    
